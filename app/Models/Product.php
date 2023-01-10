@@ -16,14 +16,15 @@ class Product extends Model
         'image',
         'price',
         'sale_price',
-        'owner_id',
         'brand_id',
         'device_id',
-        'part_category_id'
+        'part_category_id',
+        'vendor_id'
     ];
 
-    public function user()
+
+    public function vendor()
     {
-        return $this->hasOne(User::class,'id','owner_id');
+        return $this->hasOne(Vendor::class,'id','vendor_id');
     }
 }

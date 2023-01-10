@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('image')->nullable();
             $table->string('price');
             $table->string('sale_price')->nullable();
-            $table->integer('owner_id');
+            $table->integer('vendor_id');
             $table->integer('brand_id');
             $table->integer('device_id');
             $table->integer('product_category_id');
