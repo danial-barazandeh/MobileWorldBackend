@@ -22,7 +22,7 @@ return new class extends Migration
             $table->string('email')->nullable();
             $table->string('phone')->unique();
             $table->string('image')->nullable();
-            $table->string('coordinate')->unique();
+            $table->string('coordinate');
             $table->timestamps();
         });
     }
