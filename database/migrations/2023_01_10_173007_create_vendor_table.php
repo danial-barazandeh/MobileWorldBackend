@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('city')->nullable();
             $table->string('address')->nullable();
             $table->string('email')->nullable();
-            $table->string('phone')->unique();
+            $table->string('phone');
             $table->string('image')->nullable();
             $table->string('coordinate');
             $table->timestamps();
