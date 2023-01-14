@@ -13,7 +13,7 @@ class UserController extends Controller
     public function onClickRegisterOrLogin(Request $request)
     {
 
-        try {
+        // try {
             $firebase = new Firebase;
             $firebase->phone = $request['country_code'] + $request['mobile_number'];
             $firebase->token = $request['firebase_token'];
@@ -45,12 +45,12 @@ class UserController extends Controller
                         'user' => $user]);
 
             }
-        } catch (\Exception $e) {
-            return response()
-                ->json(['success' => '0',
-                    'message' => 'خطا در عملیات',
-                    'details' => $e]);
-        }
+        // } catch (\Exception $e) {
+        //     return response()
+        //         ->json(['success' => '0',
+        //             'message' => 'خطا در عملیات',
+        //             'details' => $e]);
+        // }
     }
 
     public function getUserInfo(){
