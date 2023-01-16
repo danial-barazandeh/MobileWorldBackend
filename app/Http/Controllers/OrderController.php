@@ -12,7 +12,8 @@ class OrderController extends Controller
 {
     public function getOrders(){
         $user = Auth::user();
-        $orders = Order::where('user_id',$user->id)->get();
+        // $user = User::find(1);
+        $orders = Order::where('user_id',$user->id)->with('product')->with('user')->with('vendor')->get();
         if ($orders) {
             return response()
                 ->json(['success' => '1',
@@ -25,6 +26,7 @@ class OrderController extends Controller
 
     public function addOrder(Request $request){
         $user = Auth::user();
+        // $user = User::find(1);
         $product = Product::find($request['product_id']);
         $order = new Order;
         $order->user_id = $user->id;
@@ -34,11 +36,12 @@ class OrderController extends Controller
         $order->price_at_time = $product->price;
         $order->vendor_id= $product->vendor_id;
         $order->save();
+        $temp = Order::find($order->id)->with('product')->with('user')->with('vendor');
 
         if ($order) {
             return response()
                 ->json(['success' => '1',
-                    'order' => $order]);
+                    'order' => $temp]);
         } else {
             return response()
             ->json(['success' => '0']);

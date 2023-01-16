@@ -26,10 +26,10 @@ class Order extends Model
     }
     public function user()
     {
-        return $this->hasOne(Vendor::class,'id','user_id');
+        return $this->hasOne(User::class,'id','user_id');
     }
     public function product()
     {
-        return $this->hasOne(Vendor::class,'id','product_id');
+        return $this->hasOne(Product::class,'id','product_id');
     }
 }

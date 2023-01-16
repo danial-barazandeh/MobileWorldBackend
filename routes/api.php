@@ -31,10 +31,10 @@ Route::get('sliders',  [\App\Http\Controllers\SliderController::class,'sliders']
 
 
 
+
 Route::group(['middleware' => 'auth:api'], function() {
     Route::get('getUserInfo', [UserController::class,'getUserInfo']);
     Route::post('updateUser', [UserController::class,'updateUser']);
     Route::get('getOrders', [OrderController::class,'getOrders']);
     Route::post('addOrder', [OrderController::class,'addOrder']);
-
 });
