@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -28,7 +29,11 @@ Route::post('products', [\App\Http\Controllers\ProductController::class,'product
 Route::post('search', [\App\Http\Controllers\DeviceController::class,'search']);
 Route::get('sliders',  [\App\Http\Controllers\SliderController::class,'sliders']);
 
+Route::get('getOrders', [OrderController::class,'getOrders']);
+Route::post('addOrder', [OrderController::class,'addOrder']);
+
 Route::group(['middleware' => 'auth:api'], function() {
     Route::get('getUserInfo', [UserController::class,'getUserInfo']);
     Route::post('updateUser', [UserController::class,'updateUser']);
+
 });
