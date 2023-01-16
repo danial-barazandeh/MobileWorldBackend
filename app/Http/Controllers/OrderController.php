@@ -24,7 +24,7 @@ class OrderController extends Controller
     }
 
     public function addOrder(Request $request){
-        $user = Auth::user();;
+        $user = Auth::user();
         $product = Product::find($request['product_id']);
         $order = new Order;
         $order->user_id = $user->id;
